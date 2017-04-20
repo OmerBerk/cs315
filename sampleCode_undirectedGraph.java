@@ -46,5 +46,9 @@ request( graph, omer arif|furkan, 2);
 request( graph, ertan arif+, 3);
 request( graph, grades{"midterm"}> 70, 2);
 request( graph, ertan.city=="istanbul", 1);
-request( graph, ertan|omer arif, 1);
-
+request( graph, arif|omer arif, 1);
+request( graph, ertan arif|furkan, 2);
+request( graph, ertan arif+, 3);
+request( graph, grades{"quizzes"}> 70, 2);
+request( graph, arif.city=="ankara", 1);
+request( graph, furkan|omer arif, 2);
