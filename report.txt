@@ -1,0 +1,38 @@
+Satisfied Requirements
+
+       1. (5pts) Language supports directed graph definition.
+	graph1: vertex1->vertex2, vertex2->[vertex3,vertex4], vertex1->vertex4
+       2. (5pts) Language supports undirected graph definition.
+	graph2: vertex1--vertex2, vertex1--vertex3
+       3. (10pts) Language supports definition of following vertex properties:
+		3.1. A vertex has associated data value as its property.
+		vertex1: ("name","omer")
+		3.2. A vertex can have multiple attached properties.
+		vertex2: ("name","ertan"),("age",22)
+		3.3. A property is a (name, value) pair. Properties can be multiple.
+		vertex3: ("name","furkan"),("age",22)
+       4. (10pts) Language supports definition of edge properties. Like as the vertices, edges can have multiple attached properties.
+	graph3: vertex1-edge1-vertex2, vertex2-edge2-vertex3
+	edge1: ("length", 12),("diameter",3)
+       5. (15pts) Property names are strings but language use dynamic type system for property values.
+		5.1. As for primitive types, language provide support of string, integer, and float types. 
+		vertex4: ("name","omer"),("age",22),("height",1.85)
+		5.2. Property values can be colletion types as one of the list, set, and map. Nesting collection types is also supported.
+		vertex5: ( "people", {"omer":22, "ertan":23, "arif":24})
+		vertex6: ( "people", {"ali":[1.80,80],"veli":[1.79,65],"huseyin":[1.55, 80]})
+	6. (10pts) Language supports expressing path queries. Path queries can be able to specify concatenation, alternation and repetition.
+	path1: edge1 + edge2
+	path2: edge2 + edge3
+	path3: concat( path1; path2)
+	path4: alter( path1; edge1 + edge4)
+	path5: repet( path2; 2) 
+	7. (10pts) Language supports that path query provide filters. Filters are boolean expression which are composed of prediction results of edge properties and vertex properties.
+	filter( path1; 3; "name"="ball"; "diameter"=12; "color"="red")
+	8. (10pts) Language supports predicates of property values and also it allows arithmetic expressions and functions in these predicates.
+	 exist( edge1; "name"="ball","diameter">10)
+        9. (15pts) Language supports variable usage in path expressions.
+	var name
+	filter( path1; 2; "name"=name; "name"=name)
+        10. (10pts) Language supports modularity in path queries. Regular path queries can be divided into pieces and specified separately.
+	divide( path3; 2; path1: edge1+edge2; path2: edge2+edge3)
+
