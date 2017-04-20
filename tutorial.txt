@@ -1,0 +1,17 @@
+1. Introduction
+	Language is a language which focus on expressing graphs and path queries. It is simple, readible and writible. This tutorial gives information of how to use language and its features.
+
+2. Comments
+	Language provide comment feature. Comments are code segments that are not include execution. To write a comment '#' is used. For multiple line comments language uses '/*' as start keyword and '*/' as end keyword.
+	# This is a comment line
+	/* This
+	is
+	multiple line comment */
+
+3. 
+2.Variables
+	Language has four primitive types which are string, integer, float, and boolean. 
+	Variables can be created as following code segment:
+	var age
+	var name: "omer"
+
