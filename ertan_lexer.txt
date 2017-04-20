@@ -1,0 +1,103 @@
+%{
+void printReserved(char *s){
+	printf("<R:%s>\n", s);
+}
+void printToken(char *s){
+	printf("<T:%s>\n", s);
+}
+%}
+%%
+
+
+\/\/.*$
+
+int printReserved("INTEGER_TYPE");
+string printReserved("STRING_TYPE");
+float printReserved("FLOAT_TYPE");
+boolean printReserved("BOOLEAN_TYPE");
+
+true printReserved("BOOLEAN_TRUE");
+false printReserved("BOOLEAN_FALSE");
+return printReserved("RETURN");
+
+predicate_at|predicate_before|predicate_after  printReserved("PREDICATE");
+
+graph printReserved("GRAPH");
+directed printReserved("DIRECTED");
+undirected printReserved("UNDIRECTED");
+vertex printReserved("VERTEX");
+edge printReserved("EDGE");
+property printReserved("PROPERTY");
+filter printReserved("FILTER");
+query printReserved("QUERY");
+query\(\) printReserved("QUERY_START");
+
+if printReserved("IF");
+then printReserved("THEN");
+elsif printReserved("ELSE_IF");
+else printReserved("ELSE");
+endif printReserved("END_IF");
+
+while printReserved("WHILE");
+endwhile printReserved("END_WHILE");
+
+for printReserved("FOR");
+endfor printReserved("END_FOR");
+
+beginfunc printReserved("BEGIN_FUNCTION");
+endfunc printReserved("END_FUNCTION");
+
+addProperty printReserved("ADDPROPERTY_FUNCTION");
+connect printReserved("CONNECT_FUNCTION");
+name printReserved("NAME_FUNCTION");
+equals|greaterThen|lessThen printReserved("BUILT_IN_PREDICATE_FUNCTION");
+function printReserved("USER_DEFINED_PREDICATE_FUNCTION");
+exec printReserved("EXEC_FUNCTION");
+get printReserved("GET_FUNCTION");
+size printReserved("SIZE_FUNCTION");
+contains printReserved("CONTAINS_FUNCTION");
+
+-> printReserved("PREDICATE_OPERATOR");
+\# printReserved("COMMENT_LINE_OPERATOR");
+\/\* printReserved("START_COMMENT_LINES_OPERATOR");
+\*\/ printReserved("END_COMMENT_LINES_OPERATOR");
+
+\=\= printReserved("IS_EQUAL_OPERATOR");
+\!\= printReserved("IS_NOT_EQUAL_OPERATOR");
+\< printReserved("LESS_THAN_OPERATOR");
+\<\= printReserved("LESS_OR_EQUAL_OPERATOR");
+\> printReserved("GREATER_THAN_OPERATOR");
+\>\= printReserved("GREATER_OR_EQUAL_OPERATOR");
+\~ printReserved("INVERSE_OPERATOR");
+
+\<\- printReserved("ASSIGN_OPERATOR");
+\+ printReserved("ADDITION_OPERATOR");
+\- printReserved("SUBTRACTION_OPERATOR");
+\* printReserved("MULTIPLICATION_OPERATOR");
+\/ printReserved("DIVISION_OPERATOR");
+
+\( printReserved("OPEN_PARANTHESIS");
+\) printReserved("CLOSE_PARANTHESIS");
+\, printReserved("COMMA");
+\; printReserved("END_STATEMENT_OPERATOR");
+
+[_a-zA-Z][a-zA-Z0-9_]* printToken("VARIABLE");
+[0-9] printToken("INTEGER");
+[1-9][0-9]* printToken("INTEGER");
+[1-9][0-9]*\.[0-9]+ printToken("FLOAT");
+\".[^\"]*\" printToken("STRING");
+
+[ \t\r\n]+ ;
+
+
+%%
+
+int yywrap(void)
+{
+    return 0;
+}
+
+int main(void){
+	yylex();
+	return 0;
+}
