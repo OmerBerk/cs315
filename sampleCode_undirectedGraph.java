@@ -27,7 +27,7 @@ graph(undirected) beginfunc
 
 	#Omer's grades
 	property grades;
-	grades = {"cs202":{"homeworks":[70, 70, 83], "quizzes":[100, 100], "midterm":85, "final":97.3, "letterGrade":"A"}, ge100:"A"};
+	grades = {"cs202":{"homeworks":[90, 90, 77], "quizzes":[100, 90], "midterm":85, "final":86.4, "letterGrade":"A"}, ge100:"A"};
 
 	#Adding edge properties
 	ankaraEdge.addProperty("city", ankara);
