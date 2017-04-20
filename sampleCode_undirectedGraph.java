@@ -42,10 +42,9 @@ graph(undirected) beginfunc
 	connect(furkan, omer, ankaraEdge);
 	connect(omer, arif, bilkentEdge);
 endfunc
+request( graph, omer arif|furkan, 2);
+request( graph, ertan arif+, 3);
+request( graph, grades{"midterm"}> 70, 2);
+request( graph, ertan.city=="istanbul", 1);
+request( graph, ertan|omer arif, 1);
 
-/* 
-	Query 
-			codes 
-					would be 
-								here...
-											*/
